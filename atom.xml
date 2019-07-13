@@ -96,32 +96,6 @@
   </entry>
   
   <entry>
-    <title>Python数据结构与算法系列之选择排序</title>
-    <link href="https://feng1632009.github.io/2018/11/09/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-xuan-ze-pai-xu/"/>
-    <id>https://feng1632009.github.io/2018/11/09/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-xuan-ze-pai-xu/</id>
-    <published>2018-11-09T01:25:00.000Z</published>
-    <updated>2019-03-15T02:44:58.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;选择排序&lt;code&gt;（Selection
-        
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="https://feng1632009.github.io/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://feng1632009.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Python算法实战系列之冒泡</title>
     <link href="https://feng1632009.github.io/2018/11/09/python-suan-fa-shi-zhan-xi-lie-zhi-mou-pao/"/>
     <id>https://feng1632009.github.io/2018/11/09/python-suan-fa-shi-zhan-xi-lie-zhi-mou-pao/</id>
@@ -138,6 +112,32 @@
 &lt;li&gt;比较相邻的元素，如果第一个比第二个大，就交换他们两个的位置；&lt;/li&gt;
 &lt;li&gt;对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对，这步做完后，最后的元素会是最大的数；&lt;/li&gt;
 &lt;li&gt;针对所有的元素重复以上的步骤，除了最后一个，也就是每次比较之后最大
+        
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://feng1632009.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://feng1632009.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python数据结构与算法系列之选择排序</title>
+    <link href="https://feng1632009.github.io/2018/11/09/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-xuan-ze-pai-xu/"/>
+    <id>https://feng1632009.github.io/2018/11/09/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-xuan-ze-pai-xu/</id>
+    <published>2018-11-09T01:25:00.000Z</published>
+    <updated>2019-03-15T02:44:58.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;选择排序&lt;code&gt;（Selection
         
       
     
@@ -234,11 +234,11 @@
   </entry>
   
   <entry>
-    <title>Django部署指南</title>
+    <title>test测试</title>
     <link href="https://feng1632009.github.io/2018/07/07/test123/"/>
     <id>https://feng1632009.github.io/2018/07/07/test123/</id>
     <published>2018-07-07T01:25:00.000Z</published>
-    <updated>2019-03-15T02:34:00.000Z</updated>
+    <updated>2019-07-13T01:15:58.240Z</updated>
     
     <summary type="html">
     
