@@ -70,11 +70,11 @@
   </entry>
   
   <entry>
-    <title>Python算法实战系列之冒泡</title>
-    <link href="https://feng1632009.github.io/2018/11/09/python-suan-fa-shi-zhan-xi-lie-zhi-mou-pao/"/>
-    <id>https://feng1632009.github.io/2018/11/09/python-suan-fa-shi-zhan-xi-lie-zhi-mou-pao/</id>
+    <title>Python数据结构与算法系列之队列</title>
+    <link href="https://feng1632009.github.io/2018/11/09/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-dui-lie/"/>
+    <id>https://feng1632009.github.io/2018/11/09/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-dui-lie/</id>
     <published>2018-11-09T01:25:00.000Z</published>
-    <updated>2019-03-15T02:42:58.000Z</updated>
+    <updated>2019-03-15T02:38:00.000Z</updated>
     
     <summary type="html">
     
@@ -82,10 +82,7 @@
       
         
         
-          &lt;ol&gt;
-&lt;li&gt;比较相邻的元素，如果第一个比第二个大，就交换他们两个的位置；&lt;/li&gt;
-&lt;li&gt;对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对，这步做完后，最后的元素会是最大的数；&lt;/li&gt;
-&lt;li&gt;针对所有的元素重复以上的步骤，除了最后一个，也就是每次比较之后最大
+          &lt;p&gt;队列（queue），是先进先出（FIFO,
         
       
     
@@ -125,11 +122,11 @@
   </entry>
   
   <entry>
-    <title>Python数据结构与算法系列之队列</title>
-    <link href="https://feng1632009.github.io/2018/11/09/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-dui-lie/"/>
-    <id>https://feng1632009.github.io/2018/11/09/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-dui-lie/</id>
+    <title>Python算法实战系列之冒泡</title>
+    <link href="https://feng1632009.github.io/2018/11/09/python-suan-fa-shi-zhan-xi-lie-zhi-mou-pao/"/>
+    <id>https://feng1632009.github.io/2018/11/09/python-suan-fa-shi-zhan-xi-lie-zhi-mou-pao/</id>
     <published>2018-11-09T01:25:00.000Z</published>
-    <updated>2019-03-15T02:38:00.000Z</updated>
+    <updated>2019-03-15T02:42:58.000Z</updated>
     
     <summary type="html">
     
@@ -137,7 +134,10 @@
       
         
         
-          &lt;p&gt;队列（queue），是先进先出（FIFO,
+          &lt;ol&gt;
+&lt;li&gt;比较相邻的元素，如果第一个比第二个大，就交换他们两个的位置；&lt;/li&gt;
+&lt;li&gt;对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对，这步做完后，最后的元素会是最大的数；&lt;/li&gt;
+&lt;li&gt;针对所有的元素重复以上的步骤，除了最后一个，也就是每次比较之后最大
         
       
     
