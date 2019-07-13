@@ -1,0 +1,1310 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Docker快速入门指南, python django flask mysql">
+    <meta name="description" content="镜像操作
+搜索镜像
+
+$ docker search centos
+
+
+下载镜像
+
+$ docker pll centos
+
+
+导入镜像
+
+$ docker load &amp;lt; ./docker/image/centos.tar.gz
+
+
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Docker快速入门指南 | 空灵的Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">空灵的Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">空灵的Blog</div>
+        <div class="logo-desc">
+            
+            Never Say No
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Docker快速入门指南
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Docker/" target="_blank">
+                                <span class="chip bg-color">Docker</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Docker/" class="post-category" target="_blank">
+                                Docker
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-02-01
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        1.2k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        5 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h2><ul>
+<li>搜索镜像</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker search centos
+</code></pre>
+<ul>
+<li>下载镜像</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker pll centos
+</code></pre>
+<ul>
+<li>导入镜像</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker load <span class="token operator">&lt;</span> ./docker/image/centos.tar.gz
+</code></pre>
+<ul>
+<li>导出镜像</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker save centos <span class="token operator">></span> /tmp/centos.tar.gz
+</code></pre>
+<ul>
+<li>删除镜像</li>
+</ul>
+<p>如果这个镜像创建了容器不会被删除</p>
+<pre class=" language-bash"><code class="language-bash">$ docker rmi centos
+</code></pre>
+<ul>
+<li>查看当前拥有的镜像</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+centos              latest              a8493f5f50ff        2 weeks ago         192MB
+nginx               latest              5766334bdaa0        2 weeks ago         183MB
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REPOSITORY</td>
+<td>所属仓库</td>
+</tr>
+<tr>
+<td>TAG</td>
+<td>标签</td>
+</tr>
+<tr>
+<td>IMAGE ID</td>
+<td>进项ID</td>
+</tr>
+<tr>
+<td>CREATED</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>SIZE</td>
+<td>镜像创建时间</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>删除所有的镜像</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker rmi <span class="token variable"><span class="token variable">$(</span>docker images -q<span class="token variable">)</span></span>
+</code></pre>
+<h2 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h2><ul>
+<li>启动一个新容器</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker run -i -t centos /bin/bash
+</code></pre>
+<ul>
+<li>启动一个已经存在的容器</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker start 4253385a9655
+</code></pre>
+<ul>
+<li>启动一个容器退出时不关闭</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker run --name mydocker -t -i centos /bin/bash
+<span class="token punctuation">[</span>root@5324897fb034 /<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ps -aux|grep -v "ps -aux" # 可以看到只启动了一个/bin/bash进程</span>
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0  11776  3084 ?        Ss   05:49   0:00 /bin/bash
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–name</td>
+<td>镜像的名字</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>分配一个伪终端</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>容器标准输入保持打开状态</td>
+</tr>
+</tbody>
+</table>
+<p>通过容器的ID我们可以发现和容器里面的主机名是一致的</p>
+<pre class=" language-bash"><code class="language-bash">$ docker <span class="token function">ps</span> -a <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"5324897fb034"</span>
+5324897fb034        centos              <span class="token string">"/bin/bash"</span>              6 minutes ago       Up 6 minutes                                    mydocker
+</code></pre>
+<ul>
+<li>启动一个容器在退出的时候自动删除这个容器</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker run --rm -it centos /bin/bash
+</code></pre>
+<ul>
+<li>进入一个已经运行的容器</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 这种方式启动，如果退出容器，则这个容器就会被退出，如果其他人登陆这个容器，则操作是同步的</span>
+$ docker attach 5324897fb034
+</code></pre>
+<p>通过<code>nsenter</code>访问容器且推出时不销毁容器</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 获取容器的PID</span>
+$ docker inspect --format <span class="token string">"{{.State.Pid}}"</span> 5324897fb034
+15434
+<span class="token comment" spellcheck="true"># 指定PID进入容器</span>
+$ nsenter -t 15434 -u -i -n -p
+</code></pre>
+<blockquote>
+<p>nsenter访问的是一个进程的命名空间</p>
+</blockquote>
+<ul>
+<li>查看所有的容器</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker <span class="token function">ps</span> -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+4253385a9655        centos              <span class="token string">"/bin/bash"</span>         6 minutes ago       Up 4 minutes                            thirsty_visvesvaraya
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONTAINER ID</td>
+<td>容器的ID</td>
+</tr>
+<tr>
+<td>IMAGE</td>
+<td>通过哪个镜像来运行的</td>
+</tr>
+<tr>
+<td>COMMAND</td>
+<td>最后执行的命令</td>
+</tr>
+<tr>
+<td>CREATED</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>STATUS</td>
+<td>状态</td>
+</tr>
+<tr>
+<td>PORTS</td>
+<td>启动的端口</td>
+</tr>
+<tr>
+<td>NAMES</td>
+<td>容器的名称，名称默认是自动生成的</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>删除一个容器</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker <span class="token function">rm</span> 307f7b240273
+</code></pre>
+<ul>
+<li>删除一个正在运行的容器</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker <span class="token function">rm</span> -f 9dc6a6940ce1
+</code></pre>
+<ul>
+<li>停止所有正在运行的容器</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">docker <span class="token function">kill</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">sudo</span> docker <span class="token function">ps</span> -a -q<span class="token variable">)</span></span>
+</code></pre>
+<ul>
+<li>删除所有容器</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker <span class="token function">kill</span> <span class="token variable"><span class="token variable">$(</span>docker <span class="token function">ps</span> -a -q<span class="token variable">)</span></span>
+</code></pre>
+<ul>
+<li>删除状态为退出的所有容器</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker <span class="token function">rm</span> <span class="token variable"><span class="token variable">$(</span>docker <span class="token function">ps</span> -a -f status<span class="token operator">=</span>exited -qa<span class="token variable">)</span></span>
+</code></pre>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><ul>
+<li>随机端口映射</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启动容器</span>
+$ docker run -d -P nginx
+<span class="token comment" spellcheck="true"># 查看Nginx访问日志</span>
+$ docker logs c506ed2a4e65
+</code></pre>
+<ul>
+<li>指定端口映射</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> docker run -d -p 81:80 nginx
+</code></pre>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><h3 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-v /data</td>
+<td>自动生成目标目录</td>
+</tr>
+<tr>
+<td>-v src :dst :rw</td>
+<td>指定目录挂载，并指定挂载目录的权限</td>
+</tr>
+</tbody>
+</table>
+<pre class=" language-bash"><code class="language-bash">$ docker run -i -t --name volume-test1 -v /data centos /bin/bash
+<span class="token comment" spellcheck="true"># ls /data</span>
+<span class="token comment" spellcheck="true"># 查看挂载的目录</span>
+$ docker inspect 80cef0fbd4f1
+</code></pre>
+<p>指定目录挂载</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> docker run -i -t -v /opt:/opt centos   
+<span class="token comment" spellcheck="true"># df -h | grep "/opt"</span>
+/dev/sda2       457G   62G  373G  15% /opt
+</code></pre>
+<h3 id="数据卷容器"><a href="#数据卷容器" class="headerlink" title="数据卷容器"></a>数据卷容器</h3><p>一个容器访问另一个容器的数据卷</p>
+<pre class=" language-bash"><code class="language-bash">$ docker run --name nfs -it -d -v /data centos
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d</td>
+<td>让容器在后台运行</td>
+</tr>
+</tbody>
+</table>
+<p>启动其他的容器，使用nfs容器里面的卷</p>
+<pre class=" language-bash"><code class="language-bash">$ docker run -it --name test1 --volumes-from nfs centos
+</code></pre>
+<h2 id="构建Docker镜像"><a href="#构建Docker镜像" class="headerlink" title="构建Docker镜像"></a>构建Docker镜像</h2><ul>
+<li>手动构建</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ docker run -i -t --name webserver centos
+<span class="token comment" spellcheck="true"># cd /etc/yum.repos.d/</span>
+<span class="token comment" spellcheck="true"># rpm -ivh https://mirrors.aliyun.com/centos/7.3.1611/os/x86_64/Packages/wget-1.14-13.el7.x86_64.rpm</span>
+<span class="token comment" spellcheck="true"># wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span>
+<span class="token comment" spellcheck="true"># wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo</span>
+<span class="token comment" spellcheck="true"># yum -y install nginx</span>
+<span class="token comment" spellcheck="true"># vi /etc/nginx/nginx.conf</span>
+daemon off<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true"># exit</span>
+$ docker commit -m <span class="token string">"webserver"</span> a6e5ab54bf16 ansheng/webserver:v1
+$ docker images <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"webserver"</span>
+webserver           v1                  bd32c3d82378        39 seconds ago      363MB
+$ docker run -d -p 80:80 webserver:v1 nginx
+$ curl -I 127.0.0.1:82
+HTTP/1.1 200 OK
+</code></pre>
+<ul>
+<li>通过DockerFile构建</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /tmp/
+$ <span class="token function">mkdir</span> webserver
+$ <span class="token function">cd</span> webserver/
+$ <span class="token keyword">echo</span> <span class="token string">"Hello, World!"</span> <span class="token operator">></span> index.html
+$ vim Dockerfile
+<span class="token comment" spellcheck="true"># This docker file</span>
+<span class="token comment" spellcheck="true"># VERSION</span>
+<span class="token comment" spellcheck="true"># Author: An Sheng</span>
+<span class="token comment" spellcheck="true"># Base image</span>
+FROM centos
+
+<span class="token comment" spellcheck="true">#Maintainer</span>
+MAINTAINER ansheng ianshengme@gmail.com
+
+<span class="token comment" spellcheck="true"># Commands</span>
+RUN rpm -ivh https://mirrors.aliyun.com/centos/7.3.1611/os/x86_64/Packages/wget-1.14-13.el7.x86_64.rpm
+RUN <span class="token function">wget</span> -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+RUN <span class="token function">wget</span> -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+RUN yum <span class="token function">install</span> nginx -y
+ADD index.html /usr/share/nginx/html/index.html
+RUN <span class="token keyword">echo</span> <span class="token string">"daemon off;"</span> <span class="token operator">>></span> /etc/nginx/nginx.conf
+EXPOSE 80
+CMD <span class="token punctuation">[</span><span class="token string">"nginx"</span><span class="token punctuation">]</span>
+$ docker build -t webserver:v2 ./
+</code></pre>
+<p>运行容器</p>
+<pre class=" language-bash"><code class="language-bash">$ docker run -d -p 80:80 webserver:v2
+$ curl -I 127.0.0.1:80
+HTTP/1.1 200 OK
+</code></pre>
+<ul>
+<li>Dockerfile描述</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FROM</td>
+<td>指定基础镜像</td>
+</tr>
+<tr>
+<td>MAINTAINER</td>
+<td>维护者信息</td>
+</tr>
+<tr>
+<td>RUN</td>
+<td>执行的命令</td>
+</tr>
+<tr>
+<td>ADD</td>
+<td>把本地文件copy到镜像中</td>
+</tr>
+<tr>
+<td>WORKDIR</td>
+<td>指定工作目录</td>
+</tr>
+<tr>
+<td>VOLUME</td>
+<td>目录挂载</td>
+</tr>
+<tr>
+<td>EXPOSE</td>
+<td>启动的端口</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>最后执行的指令</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><ul>
+<li>时区问题</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@d4e104c000c2 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># date</span>
+Sat Apr 29 08:51:51 UTC 2017
+<span class="token punctuation">[</span>root@d4e104c000c2 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime</span>
+<span class="token punctuation">[</span>root@d4e104c000c2 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># date</span>
+Sat Apr 29 16:52:28 CST 2017
+</code></pre>
+<ul>
+<li>字符集问题</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">LANG<span class="token operator">=</span>en_US.UTF-8
+</code></pre>
+<ul>
+<li>普通用户使用docker</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> gpasswd -a <span class="token variable">${USER}</span> docker
+</code></pre>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://feng1632009.github.io" class="b-link-green">空灵的Blog</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2017/02/01/docker-kuai-su-ru-men-zhi-nan/" class="b-link-green">Docker快速入门指南</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/11/02/pythoner-bi-hui-de-linux-ming-ling/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Pythoner必会的Linux命令">
+                        
+                        <span class="card-title">Pythoner必会的Linux命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Pythoner 必会的linux命令
+起因
+
+在日常工作中，学习linux是很痛苦的过程，此文主要列出日常开发所用常用命令行总结，并非linux命令完全指南性学习
+
+入门必看
+
+Linux是什么Linux 是一个开源系统内核，1991年由</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-11-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/02/01/docker-kuai-su-ru-men-zhi-nan/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Docker快速入门指南">
+                        
+                        <span class="card-title">Docker快速入门指南</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">镜像操作
+搜索镜像
+
+$ docker search centos
+
+
+下载镜像
+
+$ docker pll centos
+
+
+导入镜像
+
+$ docker load &lt; ./docker/image/centos.tar.gz
+
+
+</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-02-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Docker/" class="post-category" target="_blank">
+                                    Docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Docker/" target="_blank">
+                        <span class="chip bg-color">Docker</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">23.3k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:360390867@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=360390867" class="tooltipped" data-tooltip="QQ联系我: 360390867" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
