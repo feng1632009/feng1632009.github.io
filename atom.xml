@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://feng1632009.github.io/"/>
-  <updated>2019-03-15T02:49:16.000Z</updated>
+  <updated>2019-03-15T02:47:14.000Z</updated>
   <id>https://feng1632009.github.io/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Python数据结构与算法系列之归并排序</title>
-    <link href="https://feng1632009.github.io/2018/11/11/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-gui-bing-pai-xu/"/>
-    <id>https://feng1632009.github.io/2018/11/11/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-gui-bing-pai-xu/</id>
-    <published>2018-11-10T17:25:00.000Z</published>
-    <updated>2019-03-15T02:49:16.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;归并排序&lt;code&gt;(Merge sort)&lt;/code&gt;主要思想是分治法&lt;code&gt;(divide and
-        
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="https://feng1632009.github.io/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://feng1632009.github.io/tags/Python/"/>
-    
-  </entry>
   
   <entry>
     <title>Python数据结构与算法系列之插入排序</title>
@@ -57,6 +31,32 @@
         
           &lt;p&gt;插入排序&lt;code&gt;（英语：Insertion Sort）&lt;/code&gt;是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;[8, 6, 2, 3, 1, 5, 7,
+        
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://feng1632009.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://feng1632009.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python数据结构与算法系列之归并排序</title>
+    <link href="https://feng1632009.github.io/2018/11/11/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-gui-bing-pai-xu/"/>
+    <id>https://feng1632009.github.io/2018/11/11/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-gui-bing-pai-xu/</id>
+    <published>2018-11-10T17:25:00.000Z</published>
+    <updated>2019-03-15T02:49:16.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;归并排序&lt;code&gt;(Merge sort)&lt;/code&gt;主要思想是分治法&lt;code&gt;(divide and
         
       
     
@@ -96,6 +96,32 @@
   </entry>
   
   <entry>
+    <title>Python数据结构与算法系列之选择排序</title>
+    <link href="https://feng1632009.github.io/2018/11/09/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-xuan-ze-pai-xu/"/>
+    <id>https://feng1632009.github.io/2018/11/09/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-xuan-ze-pai-xu/</id>
+    <published>2018-11-09T01:25:00.000Z</published>
+    <updated>2019-03-15T02:44:58.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;选择排序&lt;code&gt;（Selection
+        
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://feng1632009.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://feng1632009.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python算法实战系列之冒泡</title>
     <link href="https://feng1632009.github.io/2018/11/09/python-suan-fa-shi-zhan-xi-lie-zhi-mou-pao/"/>
     <id>https://feng1632009.github.io/2018/11/09/python-suan-fa-shi-zhan-xi-lie-zhi-mou-pao/</id>
@@ -112,32 +138,6 @@
 &lt;li&gt;比较相邻的元素，如果第一个比第二个大，就交换他们两个的位置；&lt;/li&gt;
 &lt;li&gt;对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对，这步做完后，最后的元素会是最大的数；&lt;/li&gt;
 &lt;li&gt;针对所有的元素重复以上的步骤，除了最后一个，也就是每次比较之后最大
-        
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="https://feng1632009.github.io/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://feng1632009.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python数据结构与算法系列之选择排序</title>
-    <link href="https://feng1632009.github.io/2018/11/09/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-xuan-ze-pai-xu/"/>
-    <id>https://feng1632009.github.io/2018/11/09/python-shu-ju-jie-gou-yu-suan-fa-xi-lie-zhi-xuan-ze-pai-xu/</id>
-    <published>2018-11-09T01:25:00.000Z</published>
-    <updated>2019-03-15T02:44:58.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;选择排序&lt;code&gt;（Selection
         
       
     
@@ -230,34 +230,6 @@
     
     
       <category term="Python" scheme="https://feng1632009.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>test测试</title>
-    <link href="https://feng1632009.github.io/2018/07/07/test123/"/>
-    <id>https://feng1632009.github.io/2018/07/07/test123/</id>
-    <published>2018-07-07T01:25:00.000Z</published>
-    <updated>2019-07-13T01:15:58.240Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h5 id=&quot;本地环境-mac-os-连接远程软件-ssh-shell-服务器系统-centos-7&quot;&gt;&lt;a href=&quot;#本地环境-mac-os-连接远程软件-ssh-shell-服务器系统-centos-7&quot; class=&quot;headerlink&quot; title=&quot;本地环境
-        
-      
-    
-    </summary>
-    
-      <category term="Django" scheme="https://feng1632009.github.io/categories/Django/"/>
-    
-    
-      <category term="Python" scheme="https://feng1632009.github.io/tags/Python/"/>
-    
-      <category term="Django" scheme="https://feng1632009.github.io/tags/Django/"/>
     
   </entry>
   
