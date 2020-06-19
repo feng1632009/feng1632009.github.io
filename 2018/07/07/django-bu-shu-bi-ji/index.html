@@ -462,7 +462,7 @@ ln <span class="token operator">-</span>s <span class="token operator">/</span>u
 
 </code></pre>
 <p>验证是否安装成功 出现此图则代表安装成功</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1ftr45udzsxj315q066jsr.jpg" alt="image-20180729224426236"></p>
+<p><img src="https://tva1.sinaimg.com/large/006tKfTcgy1ftr45udzsxj315q066jsr.jpg" alt="image-20180729224426236"></p>
 <h5 id="二-：安装-mysql"><a href="#二-：安装-mysql" class="headerlink" title="二 ：安装 mysql"></a>二 ：安装 mysql</h5><p>1、先检查系统是否装有mysql</p>
 <p>rpm -qa | grep mysql</p>
 <p>下载mysql的repo源</p>
@@ -475,7 +475,7 @@ ln <span class="token operator">-</span>s <span class="token operator">/</span>u
 <pre><code># sudo yum install mysql-server
 </code></pre><p> 根据步骤安装就可以了，不过安装完成后，没有密码，需要重置密码。</p>
 <p>安装后再次查看mysql</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1ftr4jxiqq1j30x408240q.jpg" alt="image-20180729225800704"></p>
+<p><img src="https://tva1.sinaimg.com/large/006tKfTcgy1ftr4jxiqq1j30x408240q.jpg" alt="image-20180729225800704"></p>
 <p>此处可能存在报错</p>
 <pre><code>Error: Package: mysql-community-libs-5.6.35-2.el7.x86_64 (mysql56-community) Requires: libc.so.6(GLIBC_2.17)(64bit) Error: Package: mysql-community-server-5.6.35-2.el7.x86_64 (mysql56-community) Requires: libc.so.6(GLIBC_2.17)(64bit) Error: Package: mysql-community-server-5.6.35-2.el7.x86_64 (mysql56-community) Requires: systemd Error: Package: mysql-community-server-5.6.35-2.el7.x86_64 (mysql56-community) Requires: libstdc++.so.6(GLIBCXX_3.4.15)(64bit) Error: Package: mysql-community-client-5.6.35-2.el7.x86_64 (mysql56-community) Requires: libc.so.6(GLIBC_2.17)(64bit) You could try using --skip-broken to work around the problem You could try running: rpm -Va --nofiles --nodigest
 </code></pre><p>解决方法 </p>
@@ -509,7 +509,7 @@ Chown -R : 进行递归,连同子目录下的所有文件、目录
 <pre class=" language-mysql"><code class="language-mysql"> mysql -u root -p
 </code></pre>
 <p> 出现入下图界面则成功</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1ftr4wfyg5bj31ak0hidj9.jpg" alt="image-20180729231001119"></p>
+<p><img src="https://tva1.sinaimg.com/large/006tKfTcgy1ftr4wfyg5bj31ak0hidj9.jpg" alt="image-20180729231001119"></p>
 <p>接下来登录重置密码：</p>
 <pre class=" language-mysql"><code class="language-mysql">mysql -u root -p
 mysql > use mysql;
@@ -534,7 +534,7 @@ init_connect=&#39;SET NAMES utf8&#39;
 <pre><code> [mysql]
 
  default-character-set=utf8
-</code></pre><p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1ftr5foybfmj31g20mon1q.jpg" alt="image-20180729232831715"></p>
+</code></pre><p><img src="https://tva1.sinaimg.com/large/006tKfTcgy1ftr5foybfmj31g20mon1q.jpg" alt="image-20180729232831715"></p>
 <p>如上图所示</p>
 <p>重启MySQL</p>
 <pre class=" language-mysql"><code class="language-mysql"> systemctl restart mysqld
@@ -542,7 +542,7 @@ init_connect=&#39;SET NAMES utf8&#39;
 <p>然后查看mysql编码</p>
 <pre><code>mysql&gt; show variables like &#39;%character%&#39;;
 </code></pre><p>修改完成后显示结果如下：</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1ftr5iy84g0j31260gggo2.jpg" alt="image-20180729233139497"></p>
+<p><img src="https://tva1.sinaimg.com/large/006tKfTcgy1ftr5iy84g0j31260gggo2.jpg" alt="image-20180729233139497"></p>
 <h5 id="三、安装mysqlclient"><a href="#三、安装mysqlclient" class="headerlink" title="三、安装mysqlclient"></a>三、安装mysqlclient</h5><pre><code>yum install python-devel mariadb-devel -y
 </code></pre><pre><code>pip3 install mysqlclient
 然后发现没有pip命令 开始如下安装操作
@@ -574,7 +574,7 @@ yum install zlib-devel
 </code></pre><p>如软链接设置错误,删除软链接命令</p>
 <p> <strong>rm -rf /usr/bin/pip3(后面/usr/bin/pip为软链接名称,切记不能加结尾/  如:/usr/bin/pip3/则表示删除软连接及真实文件)</strong></p>
 <p>输入pip3-V 出现入下图所示 即为安装成功</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1ftrhyi9834j314203wjsa.jpg" alt="image-20180730064148611"></p>
+<p><img src="https://tva1.sinaimg.com/large/006tKfTcgy1ftrhyi9834j314203wjsa.jpg" alt="image-20180730064148611"></p>
 <h5 id="四、安装virtualenvwrapper"><a href="#四、安装virtualenvwrapper" class="headerlink" title="四、安装virtualenvwrapper"></a>四、安装virtualenvwrapper</h5><pre class=" language-python"><code class="language-python">yum install python<span class="token operator">-</span>setuptools python<span class="token operator">-</span>devel
 pip install virtualenvwrapper
 </code></pre>
@@ -592,7 +592,7 @@ mkvirtualenv test
 workon test
 
 出现下图界面则代表虚拟环境创建成功
-</code></pre><p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1ftri4lfw09j30pg028weu.jpg" alt="image-20180730064739942"></p>
+</code></pre><p><img src="https://tva1.sinaimg.com/large/006tKfTcgy1ftri4lfw09j30pg028weu.jpg" alt="image-20180730064739942"></p>
 <p>安装nginx</p>
 <h2 id="第一步-添加Nginx存储库"><a href="#第一步-添加Nginx存储库" class="headerlink" title="第一步 - 添加Nginx存储库"></a>第一步 - 添加Nginx存储库</h2><p>要添加CentOS 7 EPEL仓库，请打开终端并使用以下命令：</p>
 <pre><code>sudo yum install epel-release
@@ -616,7 +616,7 @@ sudo firewall-cmd --reload
 <p><img src="https://ws1.sinaimg.cn/large/0069RVTdgy1ftyzikyrorj31kw0l9gpw.jpg" alt="image-20180805180811338"> </p>
 <p> 导出本地开发环境</p>
 <p>进入虚拟环境 </p>
-<p>输入命令  pip freeze &gt; requirements.txt 会生成一个文件<img src="https://ws2.sinaimg.cn/large/0069RVTdgy1ftyzo5yqovj31dq02i755.jpg" alt="image-20180805181335542"></p>
+<p>输入命令  pip freeze &gt; requirements.txt 会生成一个文件<img src="https://tva1.sinaimg.com/large/0069RVTdgy1ftyzo5yqovj31dq02i755.jpg" alt="image-20180805181335542"></p>
 <p>复制内容或者直接拷贝文件到服务器</p>
 <p>进入服务器的虚拟环境 </p>
 <p>pip install -r requirements.txt</p>
@@ -624,16 +624,16 @@ sudo firewall-cmd --reload
 <p>安装uwsgi</p>
 <p>pip install uwsgi</p>
 <p>把本地的数据库传输到服务器 如图 一定不要勾选其他选项 防止出现失败 如下图</p>
-<p><img src="https://ws4.sinaimg.cn/large/0069RVTdgy1ftz0t4he6bj312m0ss449.jpg" alt="image-20180805185257398"></p>
+<p><img src="https://tva1.sinaimg.com/large/0069RVTdgy1ftz0t4he6bj312m0ss449.jpg" alt="image-20180805185257398"></p>
 <p>在服务器启动项目测试</p>
 <p>虚拟环境：python manage.py runserver 0.0.0.0:8000 </p>
 <p>ALLOWED_HOSTS = [‘*’]  </p>
 <p>输入ip+端口正常访问 </p>
-<p><img src="https://ws4.sinaimg.cn/large/0069RVTdgy1ftz3t2waojj31kw0sznpd.jpg" alt="image-20180805203632618"></p>
+<p><img src="https://tva1.sinaimg.com/large/0069RVTdgy1ftz3t2waojj31kw0sznpd.jpg" alt="image-20180805203632618"></p>
 <p>uwsgi 启动项目 </p>
 <p>uwsgi –http :8000 –module MxOnline_py3.wsgi </p>
 <p>一般是进入项目的根目录 –module指向 项目里面的wsgi</p>
-<p><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1ftz3wtbz34j31kw02g0te.jpg" alt="image-20180805204018588"></p>
+<p><img src="https://tva1.sinaimg.com/large/0069RVTdgy1ftz3wtbz34j31kw02g0te.jpg" alt="image-20180805204018588"></p>
 <p>开启之后测试能否拉起django 项目</p>
 <p>新建一个uc_nginx.conf文件</p>
 <blockquote>
@@ -675,7 +675,7 @@ sudo firewall-cmd --reload
 
 
 </code></pre><p>注意 写上STATIC_ROOT 注销掉 STATICFILES_DIRS 如图</p>
-<p><img src="https://ws1.sinaimg.cn/large/0069RVTdgy1ftz6amuic2j316u0tsten.jpg" alt="image-20180805220244860"></p>
+<p><img src="https://tva1.sinaimg.com/large/0069RVTdgy1ftz6amuic2j316u0tsten.jpg" alt="image-20180805220244860"></p>
 <p>在conf文件下 建立</p>
 <pre><code>新建uwsgi.ini 配置文件， 内容如下：
 
@@ -709,11 +709,11 @@ sudo firewall-cmd --reload
     processes： 进程数
     virtualenv：虚拟环境的目录
 </code></pre><p>uwsgi 带着配置文件启动 注意目录结构</p>
-<p><img src="https://ws4.sinaimg.cn/large/0069RVTdgy1ftz6vxo1ptj30ye034dgf.jpg" alt="image-20180805222316371"></p>
+<p><img src="https://tva1.sinaimg.com/large/0069RVTdgy1ftz6vxo1ptj30ye034dgf.jpg" alt="image-20180805222316371"></p>
 <p>此时访问域名</p>
 <p><a href="http://etreal.xyz/" target="_blank" rel="noopener">http://etreal.xyz/</a></p>
 <p>即可出现如图结果</p>
-<p><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1ftz6yq6r22j31kw0thnpd.jpg" alt="image-20180805222546460"></p>
+<p><img src="https://tva1.sinaimg.com/large/0069RVTdgy1ftz6yq6r22j31kw0thnpd.jpg" alt="image-20180805222546460"></p>
 <p>pkill -f uwsgi  自动重启并加载</p>
 <p>pkill -f -9 uwsgi   停止wsgi </p>
 <p>注意 setting debug 一定要改为True</p>
